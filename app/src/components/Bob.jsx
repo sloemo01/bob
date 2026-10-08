@@ -1,6 +1,6 @@
 // components/Bob.jsx — bob as a drop-in React component.
 //
-// The whole character in one element: 23 morphing faces, live eyes that
+// The whole character in one element: 24 morphing faces, live eyes that
 // follow the cursor, blinks, and real SVG shape morphs between faces (no
 // opacity crossfades). Drop it into any React app that has this repo's
 // engine alongside it:

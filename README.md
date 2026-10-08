@@ -1,6 +1,6 @@
 # bob · faces
 
-23 morphing character faces built from the Figma file "Untitled" (page 0:1).
+24 morphing character faces built from the Figma file "Untitled" (page 0:1).
 
 ## React app (current)
 
