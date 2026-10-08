@@ -1,0 +1,15 @@
+#!/bin/bash
+dl() { curl -sL -o "$1" "$2" && echo "OK $1 $(wc -c < $1)"; }
+dl f21_g49.svg "https://www.figma.com/api/mcp/asset/7a94bf6c-add2-4b07-aef3-852dbcb42824.svg"
+dl f22_g50_e8.svg "https://www.figma.com/api/mcp/asset/f700744b-54b3-4062-b313-eca92cc0b31c.svg"
+dl f22_g50_g.svg "https://www.figma.com/api/mcp/asset/a37f63f3-8432-47f1-82e7-6c33cec015b4.svg"
+dl f22_g50_g1.svg "https://www.figma.com/api/mcp/asset/21c5d3d1-2f4f-47ac-aff7-e9c8c73bfbdb.svg"
+dl f23_ui51.svg "https://www.figma.com/api/mcp/asset/c5e4f2d7-1355-476f-9497-f2dd67cf9d62.svg"
+dl f23_ui_g.svg "https://www.figma.com/api/mcp/asset/941488e4-345c-4a54-95a2-774e14b695f3.svg"
+dl f23_ui_g1.svg "https://www.figma.com/api/mcp/asset/55711d2a-c51b-4601-85ed-475b2d975509.svg"
+dl f24_ui52.svg "https://www.figma.com/api/mcp/asset/3702a7a6-2966-464f-85aa-55d63b142040.svg"
+dl f24_eye_m_l.svg "https://www.figma.com/api/mcp/asset/08ceacb4-9f22-4f13-84b5-2b6ef3451f63.svg"
+dl f24_eye_f_l.svg "https://www.figma.com/api/mcp/asset/dde1aedc-c0a9-4d96-8fb6-0d6d574dd86b.svg"
+dl f24_eye_m_r.svg "https://www.figma.com/api/mcp/asset/168196cf-2774-4590-be70-1bc4cc60fdf9.svg"
+dl f24_eye_f_r.svg "https://www.figma.com/api/mcp/asset/8af6de7e-2617-4f97-b998-7e2d3137617d.svg"
+dl f24_mouth.svg "https://www.figma.com/api/mcp/asset/f527d3f8-d79f-4527-8523-50d1a809d344.svg"

@@ -1,0 +1,23 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="845.708" height="845.708" viewBox="0 0 845.708 845.708" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 17">
+<circle id="Ellipse 8" cx="422.854" cy="422.854" r="422.854" fill="#D9D9D9"/>
+<ellipse id="Ellipse 2" cx="544.818" cy="353.026" rx="106" ry="204" fill="black"/>
+<g id="Mask group">
+<mask id="mask0_0_28" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="438" y="149" width="213" height="409">
+<ellipse id="Ellipse 5" cx="544.818" cy="353.026" rx="106" ry="204" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_0_28)">
+<ellipse id="Ellipse 4" cx="626.318" cy="353.026" rx="81.5" ry="89" fill="white"/>
+</g>
+</g>
+<ellipse id="Ellipse 1" cx="300.89" cy="353.026" rx="106" ry="204" fill="black"/>
+<g id="Mask group_2">
+<mask id="mask1_0_28" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="194" y="149" width="213" height="409">
+<ellipse id="Ellipse 5_2" cx="300.89" cy="353.026" rx="106" ry="204" fill="black"/>
+</mask>
+<g mask="url(#mask1_0_28)">
+<ellipse id="Ellipse 3" cx="219.39" cy="353.026" rx="81.5" ry="89" fill="white"/>
+</g>
+</g>
+</g>
+</svg>

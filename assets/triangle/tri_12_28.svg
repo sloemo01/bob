@@ -1,0 +1,23 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="2051.51" height="2055.82" viewBox="0 0 2051.51 2055.82" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 53">
+<path id="Polygon 1" d="M920.912 181.977C967.46 101.183 1084.05 101.183 1130.6 181.977L1809.57 1360.46C1856.05 1441.13 1797.82 1541.87 1704.73 1541.87H346.784C253.687 1541.87 195.464 1441.13 241.94 1360.46L920.912 181.977Z" fill="#0BCAFF"/>
+<ellipse id="Ellipse 2" cx="1146.21" cy="830.533" rx="106" ry="204" fill="black"/>
+<g id="Mask group">
+<mask id="mask0_0_4" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1040" y="626" width="213" height="409">
+<ellipse id="Ellipse 5" cx="1146.21" cy="830.533" rx="106" ry="204" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_0_4)">
+<ellipse id="Ellipse 4" cx="1086.42" cy="765.741" rx="81.5" ry="89" fill="white"/>
+</g>
+</g>
+<ellipse id="Ellipse 1" cx="876.209" cy="830.533" rx="106" ry="204" fill="black"/>
+<g id="Mask group_2">
+<mask id="mask1_0_4" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="770" y="626" width="213" height="409">
+<ellipse id="Ellipse 5_2" cx="876.209" cy="830.533" rx="106" ry="204" fill="black"/>
+</mask>
+<g mask="url(#mask1_0_4)">
+<ellipse id="Ellipse 3" cx="821.67" cy="765.741" rx="81.5" ry="89" fill="white"/>
+</g>
+</g>
+</g>
+</svg>

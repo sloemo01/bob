@@ -1,0 +1,25 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="845.708" height="845.708" viewBox="0 0 845.708 845.708" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 15">
+<circle id="Ellipse 8" cx="422.854" cy="422.854" r="422.854" fill="#D9D9D9"/>
+<ellipse id="Ellipse 2" cx="554.925" cy="353.026" rx="106" ry="204" fill="black"/>
+<g id="Mask group">
+<mask id="mask0_0_61" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="448" y="149" width="213" height="409">
+<ellipse id="Ellipse 5" cx="554.925" cy="353.026" rx="106" ry="204" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_0_61)">
+<path id="Heart 2" d="M539.252 427.193C532.983 419.776 473.425 369.714 473.425 315.943C473.425 282.568 492.233 264.026 517.31 264.026C532.983 264.026 545.521 275.151 554.925 291.839C564.329 275.151 576.868 264.026 592.541 264.026C617.618 264.026 636.425 282.568 636.425 315.943C636.425 369.714 576.868 419.776 554.925 442.026L539.252 427.193Z" fill="white"/>
+</g>
+</g>
+<g id="Mask group_2">
+<ellipse id="Ellipse 1" cx="284.925" cy="353.026" rx="106" ry="204" fill="black"/>
+<g id="Mask group_3">
+<mask id="mask1_0_61" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="178" y="149" width="213" height="409">
+<ellipse id="Ellipse 5_2" cx="284.925" cy="353.026" rx="106" ry="204" fill="black"/>
+</mask>
+<g mask="url(#mask1_0_61)">
+<path id="Heart 1" d="M263.214 427.193C256.945 419.776 197.387 369.714 197.387 315.943C197.387 282.568 216.195 264.026 241.272 264.026C256.945 264.026 269.483 275.151 278.887 291.839C288.291 275.151 300.829 264.026 316.502 264.026C341.579 264.026 360.387 282.568 360.387 315.943C360.387 369.714 300.829 419.776 278.887 442.026L263.214 427.193Z" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+</svg>

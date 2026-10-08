@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="311.611" height="319.669" viewBox="0 0 311.611 319.669" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Mask group">
+<mask id="mask0_0_88" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="312" height="320">
+<rect id="Rectangle 3" width="311.611" height="319.669" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_0_88)">
+<ellipse id="Ellipse 2" cx="136.078" cy="72.1344" rx="106" ry="204" fill="black"/>
+<g id="Mask group_2">
+<mask id="mask1_0_88" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="30" y="-132" width="213" height="409">
+<ellipse id="Ellipse 5" cx="136.078" cy="72.1344" rx="106" ry="204" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask1_0_88)">
+<ellipse id="Ellipse 6" cx="85.5059" cy="42.4334" rx="81.5" ry="89" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+</svg>

@@ -1,0 +1,19 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="845.708" height="845.708" viewBox="0 0 845.708 845.708" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 16">
+<circle id="Ellipse 8" cx="422.854" cy="422.854" r="422.854" fill="#D9D9D9"/>
+<g id="Group">
+<path id="Vector" d="M643.485 245.265L508.575 353.026L643.485 460.787" stroke="#1A1A1A" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="Mask group">
+<ellipse id="Ellipse 1" cx="284.925" cy="353.026" rx="106" ry="204" fill="black"/>
+<g id="Mask group_2">
+<mask id="mask0_0_50" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="178" y="149" width="213" height="409">
+<ellipse id="Ellipse 5" cx="284.925" cy="353.026" rx="106" ry="204" fill="black"/>
+</mask>
+<g mask="url(#mask0_0_50)">
+<ellipse id="Ellipse 3" cx="243.12" cy="333.854" rx="81.5" ry="89" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+</svg>

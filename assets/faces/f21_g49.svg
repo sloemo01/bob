@@ -1,0 +1,37 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="845.708" height="845.708" viewBox="0 0 845.708 845.708" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 29">
+<circle id="Ellipse 8" cx="422.854" cy="422.854" r="422.854" fill="#D9D9D9"/>
+<g id="Mask group">
+<mask id="mask0_0_4" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="383" y="233" width="315" height="399">
+<rect id="Rectangle 5" x="441.049" y="233.938" width="259.373" height="360.277" transform="rotate(9.22299 441.049 233.938)" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_0_4)">
+<ellipse id="Ellipse 2" cx="554.923" cy="353.026" rx="106" ry="204" fill="black"/>
+<g id="Mask group_2">
+<mask id="mask1_0_4" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="448" y="149" width="213" height="409">
+<ellipse id="Ellipse 5" cx="554.923" cy="353.026" rx="106" ry="204" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask1_0_4)">
+<ellipse id="Ellipse 4" cx="495.138" cy="288.234" rx="81.5" ry="89" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+<g id="Mask group_3">
+<mask id="mask2_0_4" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="127" y="230" width="311" height="374">
+<rect id="Rectangle 6" width="259.373" height="335.726" transform="matrix(-0.987072 0.160277 0.160277 0.987072 383.219 230.946)" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask2_0_4)">
+<ellipse id="Ellipse 1" cx="284.926" cy="353.026" rx="106" ry="204" fill="black"/>
+<g id="Mask group_4">
+<mask id="mask3_0_4" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="178" y="149" width="213" height="409">
+<ellipse id="Ellipse 5_2" cx="284.926" cy="353.026" rx="106" ry="204" fill="black"/>
+</mask>
+<g mask="url(#mask3_0_4)">
+<ellipse id="Ellipse 3" cx="230.387" cy="288.234" rx="81.5" ry="89" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>
