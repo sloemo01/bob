@@ -1,4 +1,4 @@
-# bob-faces
+# bob
 
 The drop-in bob: 24 morphing faces, live eyes that follow the cursor, blinks,
 and real SVG shape morphs between every pair. No opacity crossfades anywhere.

@@ -859,7 +859,7 @@ HTML = r"""<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>bob · faces</title>
+<title>bob</title>
 <style>
   html, body { margin: 0; height: 100%; background: #0e0e11; overflow: hidden; }
   body { display: flex; align-items: center; justify-content: center; }

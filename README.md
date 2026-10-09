@@ -1,4 +1,4 @@
-<h1 align="center">bob · faces</h1>
+<h1 align="center">bob</h1>
 
 <p align="center">24 morphing character faces built from the Figma file "Untitled" (page 0:1).</p>
 

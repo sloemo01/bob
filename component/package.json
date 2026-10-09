@@ -2,7 +2,7 @@
   "name": "bob-faces",
   "version": "1.0.0",
   "private": true,
-  "description": "bob · faces: 24 morphing SVG faces as a drop-in React component (engine + data packed in)",
+  "description": "bob: 24 morphing SVG faces as a drop-in React component (engine + data packed in)",
   "license": "MIT",
   "type": "module",
   "main": "./dist/bob.cjs",
