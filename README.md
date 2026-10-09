@@ -132,3 +132,7 @@ Details in [`typebob/README.md`](typebob/README.md).
 
 - Face 3's spinner keeps the Figma arrangement; only its motion (spin, chase,
   depth) is animated. All other faces are pixel-matched to their Figma frames.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

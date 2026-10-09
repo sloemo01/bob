@@ -77,3 +77,7 @@ inside it, re-bundle `dist/`:
   SVG keeps its own sizing inside any host page.
 - `data.json` is generated from the Figma exports with `python3 build.py --json`
   in the repo root.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
