@@ -211,8 +211,8 @@ function gazePupils(face, gaze) {
 
 export function createClock(opts) {
   const { face = 1, only = "", hold = 0, still = false, ff = 0 } = opts;
-  // drive mode: the host drives every face change over
-  // postMessage; the auto-cycle waits until setDrive(false).
+  // drive mode: the host drives every face change over postMessage; the
+  // auto-cycle waits until setDrive(false).
   let driveOn = !!opts.drive;
   const ONLY = (only || "").split(",").map(Number).filter((n) => n >= 1 && n <= N);
   const SEQ = ONLY.length ? ONLY.map((n) => n - 1) : DATA.faces.map((_, k) => k);

@@ -1,5 +1,5 @@
 // components/Stage.jsx — the SVG stage. Holds render the exact face geometry;
-// morphs render flubber-interpolated paths (no opacity crossfades).
+// morphs render interpolated paths (no opacity crossfades).
 
 import DATA from "../data.json";
 import { lerp, lerpColor, ellipsePath, parseColor } from "../engine/geom";

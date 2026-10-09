@@ -12,7 +12,7 @@ import numpy as np
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SHOTS = os.path.join(ROOT, "assets", "shots")
 OUT = os.path.join(ROOT, "assets", "render")
-BASE = os.environ.get("BOB_BASE", f"file://{ROOT}/index.html")   # e.g. http://127.0.0.1:5173/ for the react app
+BASE = os.environ.get("BOB_BASE", f"file://{ROOT}/index.html")   # set BOB_BASE to a served copy if file: is blocked
 SHELL_BIN = os.path.expanduser(
     "~/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell")
 

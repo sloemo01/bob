@@ -1,7 +1,6 @@
-// Plain config object (no imports) so this folder needs no node_modules of
-// its own: it runs with the app's vite binary.
+// Plain config object (no imports) so the bundler needs no config-side deps.
 //
-//   cd component && ../app/node_modules/.bin/vite build     (or ./build.sh)
+//   ./build.sh      (or: npm run build)
 //
 // dist/bob.js   — ESM bundle, react externalized
 // dist/bob.cjs  — CommonJS bundle, react externalized

@@ -2,7 +2,7 @@
   "name": "bob-faces",
   "version": "1.0.0",
   "private": true,
-  "description": "bob \u00b7 faces \u2014 24 morphing SVG faces as a drop-in React component (engine + data packed in)",
+  "description": "bob · faces: 24 morphing SVG faces as a drop-in React component (engine + data packed in)",
   "type": "module",
   "main": "./dist/bob.cjs",
   "module": "./dist/bob.js",
@@ -28,5 +28,8 @@
   },
   "scripts": {
     "build": "bash build.sh"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4"
   }
 }

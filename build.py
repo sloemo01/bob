@@ -329,7 +329,7 @@ CENTERS = {
 
 extras_svg = "\n".join(f'<g id="x-{k}"><g class="st">{F[k]}</g></g>' for k in EXTRA_KEYS)
 
-# ---- react export: python3 build.py --json --------------------------------
+# ---- component export: python3 build.py --json -----------------------------
 if "--json" in __import__("sys").argv:
     import math as _math
     import xml.etree.ElementTree as _ET
@@ -480,9 +480,9 @@ if "--json" in __import__("sys").argv:
     _rd = _rm.group(1)
     _rd = re.sub(r"(-?[\d.]+)\s+(-?[\d.]+)\s*H\s*(-?[\d.]+)", r"\1 \2 L \3 \2", _rd)
     out["droplet"] = {"d": _rd, "fill": _rm.group(2)}
-    _p = pathlib.Path("app/src/data.json")
+    _p = pathlib.Path("component/src/data.json")
     _p.write_text(json.dumps(out))
-    print("wrote app/src/data.json:", len(json.dumps(out)), "chars,", len(out["faces"]), "faces, cloud", len(_cm.group(1)), "chars")
+    print("wrote component/src/data.json:", len(json.dumps(out)), "chars,", len(out["faces"]), "faces, cloud", len(_cm.group(1)), "chars")
 
 # ---------------------------------------------------------------- engine
 ENGINE = r"""

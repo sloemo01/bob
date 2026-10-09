@@ -1,27 +1,13 @@
-# bob · faces — packed React component
+# bob-faces
 
 The drop-in bob: 24 morphing faces, live eyes that follow the cursor, blinks,
 and real SVG shape morphs between every pair. No opacity crossfades anywhere.
-This folder is self-contained — engine (`morph.js`, `clock.js`, `geom.js`),
-`Stage`, and `data.json` all live inside it, so pointing your bundler at
-`component/src` is enough.
+This folder is self-contained: the engine (`morph.js`, `clock.js`, `geom.js`),
+`Stage`, and `data.json` all live inside it, so pointing a bundler at `src/`
+is enough.
 
-## Use it from this repo
-
-```jsx
-// your app
-import { Bob } from "../bob/component/src";
-// or once packed: import { Bob } from "../bob/component/dist/bob.js";
-
-function Page() {
-  return <Bob size={320} />;
-}
-```
-
-Vite / webpack / Rspack handle the JSX and JSON imports inside `src/` directly,
-so nothing else is needed. React is the only peer dependency.
-
-## Use it from npm (after `npm pack` or publishing this folder)
+Headed for npm as `bob-faces`; publishing is the next step. The folder is
+pack-ready today:
 
 ```bash
 cd component
@@ -29,8 +15,8 @@ npm pack            # or: npm publish (after un-privating)
 ```
 
 ```jsx
-import { Bob } from "bob-faces";
-import "bob-faces/style.css"; // not needed — the component injects its own
+import { Bob } from "bob-faces";       // once it is on npm
+// from this repo, before then: import { Bob } from "./src";
 ```
 
 The built bundles are `dist/bob.js` (ESM) and `dist/bob.cjs` (CommonJS), React
@@ -45,11 +31,11 @@ externalized. `index.d.ts` ships the prop and ref types.
 | `only` | `""` | restrict the auto-cycle to a subset, e.g. `"2,3,5"` |
 | `hold` | `0` | ms each face holds before morphing (0 = engine default) |
 | `drive` | `false` | don't auto-cycle; drive it with the ref instead |
-| `body` | `"circle"` | starting body — `circle`, `cloud`, `square`, `hexagon`, `pebble`, `triangle`, `starburst`, `diamond`, `trigon`, `droplet`. Later changes morph. |
+| `body` | `"circle"` | starting body: `circle`, `cloud`, `square`, `hexagon`, `pebble`, `triangle`, `starburst`, `diamond`, `trigon`, `droplet`. Later changes morph. |
 | `paused` | `false` | freeze the animation |
 | `lookAtCursor` | `true` | eyes follow the pointer across the element |
-| `onFace` | — | `(index, total) => void` on every resting-face change |
-| `className`, `style` | — | passed through to the wrapper |
+| `onFace` | none | `(index, total) => void` on every resting-face change |
+| `className`, `style` | none | passed through to the wrapper |
 
 ## Ref handle
 
@@ -67,9 +53,8 @@ bob.current.faces;        // 24
 
 ## Run the example
 
-`example/index.html` is a no-build page that loads the ESM bundle from a CDN
-and the repo's own built `dist/bob.js`. Serve the repo root over http (ES
-modules reject `file://`):
+`example/index.html` is a no-build page that loads React from a CDN and the
+built `dist/bob.js` next to it. Serve over http (ES modules reject `file://`):
 
 ```bash
 node component/example/serve.mjs      # http://127.0.0.1:5184/example/
@@ -77,13 +62,13 @@ node component/example/serve.mjs      # http://127.0.0.1:5184/example/
 
 Or with any static server, e.g. `npx serve` at the repo root.
 
-## Rebuilding after an engine change
+## Rebuilding
 
-`app/src` remains the source of truth. `component/build.sh` syncs the copy
-and re-bundles `dist/`:
+`src/` here is the source of truth for the shipped character. After any change
+inside it, re-bundle `dist/`:
 
 ```bash
-./component/build.sh
+./build.sh          # or: npm run build
 ```
 
 ## Notes
@@ -91,4 +76,4 @@ and re-bundles `dist/`:
 - The component injects one scoped stylesheet (`#bob-component-style`) so the
   SVG keeps its own sizing inside any host page.
 - `data.json` is generated from the Figma exports with `python3 build.py --json`
-  in the repo root; it is copied here by `build.sh`.
+  in the repo root.

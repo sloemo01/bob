@@ -2,8 +2,7 @@
 //
 // The whole character in one element: 24 morphing faces, live eyes that
 // follow the cursor, blinks, and real SVG shape morphs between faces (no
-// opacity crossfades). Drop it into any React app that has this repo's
-// engine alongside it:
+// opacity crossfades). Drop it into any React app:
 //
 //   import Bob from "./components/Bob";
 //   <Bob size={320} />
@@ -46,8 +45,8 @@ function useScopedStyle() {
     s.id = STYLE_ID;
     s.textContent =
       ".bob-wrap{display:inline-block;line-height:0}" +
-      // scope the SVG to the wrapper even when the host page styles #stage
-      // itself (the demo's index.css pins #stage to a fixed width)
+      // scope the SVG to the wrapper even when the host page pins #stage
+      // to a fixed width
       ".bob-wrap svg,.bob-wrap #stage{width:100%;height:auto;display:block}";
     document.head.appendChild(s);
   }, []);

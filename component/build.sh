@@ -1,24 +1,17 @@
 #!/usr/bin/env bash
 # Rebuild the packed component.
 #
-# app/src is the source of truth — this syncs the component copy from it and
-# re-bundles dist/ with the app's vite. Run after any change inside app/src
-# that the component should carry (engine, Stage, Bob, data.json).
+# src/ here is the source of truth for the shipped character (engine, Stage,
+# Bob, data.json). This bundles dist/ with the component's own vite. Run after
+# any change inside src/.
 set -euo pipefail
 cd "$(dirname "$0")"
 
-APP=../app
-VITE="$APP/node_modules/.bin/vite"
-
-if [ ! -x "$VITE" ]; then
-  echo "vite not found at $VITE — run: (cd $APP && npm install)" >&2
+if [ ! -x node_modules/.bin/vite ]; then
+  echo "vite not found — run: (cd component && npm install)" >&2
   exit 1
 fi
 
-cp "$APP/src/components/Bob.jsx" "$APP/src/components/Stage.jsx" src/components/
-cp "$APP/src/engine/clock.js" "$APP/src/engine/morph.js" "$APP/src/engine/geom.js" src/engine/
-cp "$APP/src/data.json" src/
+node_modules/.bin/vite build
 
-"$VITE" build
-
-echo "component ready: src/ synced from app/src, dist/ rebuilt"
+echo "component ready: dist/ rebuilt"
