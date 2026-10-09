@@ -8,14 +8,13 @@
 
 `component/` is the whole character as one self-contained package: 24 morphing
 faces, live eyes, the morph engine, `Stage`, and `data.json`. Nothing outside
-React is required, and `dist/` ships prebuilt ESM and CJS bundles. It is
-pack-ready today (`cd component && npm pack`) and headed for npm as
-`bob-faces`; publishing is the next step.
+React is required, and `dist/` ships prebuilt ESM and CJS bundles. It is on
+npm as `@sloemo/bob` (plain `bob` is taken on the registry).
 
 ```jsx
 import { Bob } from "./component/src";                 // from this repo
 // or the prebuilt ESM bundle: import { Bob } from "./component/dist/bob.js";
-// once it is on npm: import { Bob } from "bob-faces";
+// from npm: import { Bob } from "@sloemo/bob";
 
 <Bob size={320} />
 ```
@@ -122,7 +121,7 @@ Details in [`typebob/README.md`](typebob/README.md).
 - `index.html` the single-file build (self-contained, generated)
 - `build.py` regenerates `index.html` and `component/src/data.json`
 - `compare.py` the still-comparison harness
-- `component/` the bob-faces package
+- `component/` the npm package (`@sloemo/bob`)
 - `typebob/` the typing app
 - `assets/faces/` per-face SVG exports from the Figma file
 - `assets/shots/` per-face PNG screenshots from Figma (ground truth)

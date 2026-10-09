@@ -1,5 +1,5 @@
 {
-  "name": "bob-faces",
+  "name": "@sloemo/bob",
   "version": "1.0.0",
   "description": "bob: 24 morphing SVG faces as a drop-in React component (engine + data packed in)",
   "license": "MIT",

@@ -6,17 +6,15 @@ This folder is self-contained: the engine (`morph.js`, `clock.js`, `geom.js`),
 `Stage`, and `data.json` all live inside it, so pointing a bundler at `src/`
 is enough.
 
-Headed for npm as `bob-faces`; publishing is the next step. The folder is
-pack-ready today:
+On npm as `@sloemo/bob` (the plain name `bob` is taken on the registry):
 
 ```bash
-cd component
-npm pack            # or: npm publish (after un-privating)
+npm install @sloemo/bob
 ```
 
 ```jsx
-import { Bob } from "bob-faces";       // once it is on npm
-// from this repo, before then: import { Bob } from "./src";
+import { Bob } from "@sloemo/bob";
+// from this repo: import { Bob } from "./src";
 ```
 
 The built bundles are `dist/bob.js` (ESM) and `dist/bob.cjs` (CommonJS), React
