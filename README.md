@@ -2,6 +2,8 @@
 
 24 morphing character faces built from the Figma file "Untitled" (page 0:1).
 
+![bobvid demo](bobvid-demo.gif)
+
 ## React app (current)
 
 `app/` is the React implementation. Every transition between consecutive faces is
