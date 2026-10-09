@@ -1,6 +1,6 @@
 {
   "name": "@sloemo/bob",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "bob: the morphing character and his typing scene as drop-in React components (engine + data packed in)",
   "license": "MIT",
   "type": "module",
