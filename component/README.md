@@ -1,4 +1,4 @@
-# bob
+# B.O.B (Basic Object Bender)
 
 Two drop-in React components in one package: **Bob**, the character (24
 morphing faces, live eyes that follow the cursor, blinks, real SVG shape

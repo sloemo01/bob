@@ -1,4 +1,4 @@
-<h1 align="center">bob</h1>
+<h1 align="center">B.O.B (Basic Object Bender)</h1>
 
 <p align="center">24 morphing character faces built from a Figma file and a little dream.</p>
 
