@@ -122,15 +122,15 @@ into it, rests, then lifts off to the next paragraph. It ships two ways, both
 in this repo:
 
 - the **app** (`typebob/`), a Vite + React page that runs the scene full-bleed
-- the **component** (`typebob/component/`), the same scene as a drop-in React
-  component, packaged for npm as `@sloemo/typebob`:
+- the **component**, the same scene as a drop-in React component, in the same
+  npm package as the character:
 
 ```bash
-npm install @sloemo/typebob
+npm install @sloemo/bob    # both Bob and Typebob
 ```
 
 ```jsx
-import { Typebob } from "@sloemo/typebob";
+import { Typebob } from "@sloemo/bob";
 
 <div style={{ width: "100%", height: 420 }}>
   <Typebob paragraphs={["your own words.", "and a second one."]} />
@@ -139,7 +139,7 @@ import { Typebob } from "@sloemo/typebob";
 
 Props (`paragraphs`, `cps`, `body`, `tour`, `paused`, `onParagraph`, ...) and
 the ref handle are documented in
-[`typebob/component/README.md`](typebob/component/README.md). The app runs with:
+[`component/README.md`](component/README.md). The app runs with:
 
     cd typebob && npm install && npm run dev -- --port 5175
 
@@ -150,8 +150,8 @@ Details in [`typebob/README.md`](typebob/README.md).
 - `index.html` the single-file build (self-contained, generated)
 - `build.py` regenerates `index.html` and `component/src/data.json`
 - `compare.py` the still-comparison harness
-- `component/` the npm package (`@sloemo/bob`)
-- `typebob/` the typing app + `typebob/component/` (the npm package `@sloemo/typebob`)
+- `component/` the npm package (`@sloemo/bob`: `Bob` + `Typebob`)
+- `typebob/` the typing app (the component lives in `component/`, one package)
 - `assets/faces/` per-face SVG exports from the Figma file
 - `assets/shots/` per-face PNG screenshots from Figma (ground truth)
 - `assets/render/` headless renders, pair strips, contact sheets

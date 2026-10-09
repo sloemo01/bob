@@ -8,6 +8,9 @@
       html, body { margin: 0; height: 100%; background: #0e0e11; }
       #root { height: 100%; display: flex; align-items: center; justify-content: center; }
       .stack { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+      .scene { display: flex; align-items: center; justify-content: center; }
+      .scene .bob { width: 340px; }
+      .scene .type { width: min(88vw, 720px); height: 380px; }
       #controls {
         display: flex; align-items: center; gap: 12px;
         font: 500 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -22,6 +25,7 @@
         transition: border-color 0.15s ease, color 0.15s ease;
       }
       button:hover { border-color: rgba(255, 255, 255, 0.45); color: #fff; }
+      button.on { border-color: rgba(255, 255, 255, 0.55); color: #fff; }
     </style>
   </head>
   <body>
@@ -42,24 +46,34 @@
     <script type="module">
       import { createElement as h, useRef, useState } from "react";
       import { createRoot } from "react-dom/client";
-      import { Bob } from "../dist/bob.js";
+      import { Bob, Typebob } from "../dist/bob.js";
 
       function App() {
         const bob = useRef(null);
+        const [tab, setTab] = useState("bob");
         const [face, setFace] = useState(1);
         const [paused, setPaused] = useState(false);
         return h("div", { className: "stack" },
-          h(Bob, {
-            ref: bob,
-            size: 340,
-            paused,
-            onFace: (i) => setFace(i + 1),
-          }),
+          tab === "bob"
+            ? h("div", { className: "scene" },
+                h("div", { className: "bob" },
+                  h(Bob, { ref: bob, size: 340, paused, onFace: (i) => setFace(i + 1) }),
+                ),
+              )
+            : h("div", { className: "scene" },
+                h("div", { className: "type" },
+                  h(Typebob, { paragraphs: [
+                    "this one is typed by the same character, from the same bundle. every word lands one character at a time.",
+                    "and when the paragraph ends, he folds into the period. then he lifts off and starts the next one.",
+                  ] }),
+                ),
+              ),
           h("div", { id: "controls" },
-            h("button", { onClick: () => bob.current.advance(-1) }, "\u2190"),
-            h("button", { onClick: () => setPaused((p) => !p) }, paused ? "play" : "pause"),
-            h("button", { onClick: () => bob.current.advance(1) }, "\u2192"),
-            h("span", null, `face ${face} / 24`),
+            h("button", { className: tab === "bob" ? "on" : "", onClick: () => setTab("bob") }, "bob"),
+            h("button", { className: tab === "typebob" ? "on" : "", onClick: () => setTab("typebob") }, "typebob"),
+            tab === "bob"
+              ? h("span", null, `face ${face} / 24`)
+              : h("span", null, "typed live"),
           ),
         );
       }

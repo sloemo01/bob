@@ -1757,3 +1757,134 @@ export function bodySnapshot(from, toKey, tRaw) {
     fill,
   };
 }
+
+export function buildTransition(A, B, spec) {
+  const remA = new Map(A.map((s) => [s.id, s]));
+  const remB = new Map(B.map((s) => [s.id, s]));
+  const pairs = [];
+  const take = (a, b) => {
+    if (a) remA.delete(a.id);
+    if (b) remB.delete(b.id);
+    pairs.push([a || null, b || null]);
+  };
+  if (spec) {
+    for (const [aid, bid] of spec.pairs) take(remA.get(aid) || null, remB.get(bid) || null);
+    for (const aid of spec.collapseA || []) { const a = remA.get(aid); if (a) take(a, null); }
+  }
+  for (const id of [...remA.keys()]) if (remB.has(id)) take(remA.get(id), remB.get(id));
+  const ca = [...remA.values()].map((s) => ({ s, c: pointCenterOf(densePoints(s.d)) }));
+  const cb = [...remB.values()].map((s) => ({ s, c: pointCenterOf(densePoints(s.d)) }));
+  const cand = [];
+  for (const a of ca) for (const b of cb) {
+    const d = Math.hypot(a.c[0] - b.c[0], a.c[1] - b.c[1]);
+    cand.push({ a, b, d });
+  }
+  cand.sort((x, y) => x.d - y.d);
+  const usedA = new Set(), usedB = new Set();
+  for (const { a, b } of cand) {
+    if (usedA.has(a.s.id) || usedB.has(b.s.id)) continue;
+    usedA.add(a.s.id); usedB.add(b.s.id);
+    take(a.s, b.s);
+  }
+  for (const { s } of ca) if (!usedA.has(s.id) && remA.has(s.id)) take(s, null);
+  for (const { s } of cb) if (!usedB.has(s.id) && remB.has(s.id)) take(null, s);
+
+  const items = pairs.map(([a, b], idx) => ({ idx, a, b, shift: 0, ...preparePair(a, b) }));
+  const slot = { eyeL: 0, pupL: 1, eyeR: 2, pupR: 3 };
+  const bOrd = new Map(B.map((s, k) => [s.id, k]));
+  const aOrd = new Map(A.map((s, k) => [s.id, k]));
+  const keyOf = (it) => {
+    const aS = it.a ? slot[it.a.id] : undefined;
+    const bS = it.b ? slot[it.b.id] : undefined;
+    if (aS != null || bS != null) return Math.min(aS != null ? aS : 99, bS != null ? bS : 99);
+    if (it.b) return 100 + bOrd.get(it.b.id);
+    return 1000 + aOrd.get(it.a.id);
+  };
+  items.sort((p, q) => keyOf(p) - keyOf(q));
+  return items;
+}
+
+// --- typebob: a face <-> a single DOT ----------------------------------------
+// The ending of a typing run: EVERY shape of the face (eyes, pupils, marks)
+// converges into the centre while the body disc collapses to a small dot — a
+// real path morph, built on the same preparePair machinery as every face pair.
+// Both directions pair ALL shapes with the dot (a plain buildTransition would
+// pair just one and shrink the rest in place), so the collapse reads as the
+// face gathering into a point and the wake reads as the point blooming back.
+//
+// The dot IS the sentence's own period. The app measures the real ink size of
+// a "." in the text's own font+size and passes it as `r` (design units), plus
+// the text's own ink colour: every shape of the face then converges into a
+// circle of exactly that size and colour — eyes, pupils and marks all melt
+// into the period — and the body disc collapses onto the same spot, so the
+// settled state is literally the text's full stop. The reverse direction
+// blooms the period back out into the next face.
+export const DOT_AT = [422.854, 422.854];
+
+export function dotShape(ink, r, at = DOT_AT) {
+  return { id: "dot", d: ellipsePath(at[0], at[1], r, r), fill: ink };
+}
+
+let _toDot = null, _fromDot = null;
+
+// `at` lets a ring body aim its content's gathered disc at the ring's own
+// bbox centre (which the stage frame maps to the viewport centre), so the
+// settled dot lands exactly where the ring collapses onto; the default is
+// the plain circle's centre.
+export function faceToDot(faceIdx, ink, r, at = DOT_AT) {
+  if (!_toDot) _toDot = new Map();
+  const key = `${faceIdx}|${ink}|${r.toFixed(2)}|${at[0].toFixed(1)}|${at[1].toFixed(1)}`;
+  if (!_toDot.has(key)) {
+    const dot = dotShape(ink, r, at);
+    const A = shapeList(DATA.faces[faceIdx]);
+    const items = A.map((s, idx) => ({ idx, a: s, b: dot, shift: 0, ...preparePair(s, dot) }));
+    _toDot.set(key, items);
+  }
+  return _toDot.get(key);
+}
+
+export function dotToFace(faceIdx, ink, r, at = DOT_AT) {
+  if (!_fromDot) _fromDot = new Map();
+  const key = `${faceIdx}|${ink}|${r.toFixed(2)}|${at[0].toFixed(1)}|${at[1].toFixed(1)}`;
+  if (!_fromDot.has(key)) {
+    const dot = dotShape(ink, r, at);
+    const B = shapeList(DATA.faces[faceIdx]);
+    const items = B.map((s, idx) => ({ idx, a: dot, b: s, shift: 0, ...preparePair(dot, s) }));
+    _fromDot.set(key, items);
+  }
+  return _fromDot.get(key);
+}
+
+// --- typebob additive: off-thread ring warm-up -------------------------------
+// ringSet()'s first build spends ~3s inside the fit iteration (mkDiamond ~700ms,
+// mkTriangle ~600ms, mkDroplet ~500ms, mkHexagon/mkStarburst ~430ms each,
+// mkTrigon ~330ms). Rendered lazily it lands on the main thread inside the
+// first NON-circle body render — the auto tour's first step — and freezes the
+// whole page (typing stalls ~3s, then bursts). ringwarm.js (a module worker)
+// imports this file, calls warmRingSet() in its own module instance and posts
+// the plain rings back; adoptRingSet() installs them, so ringSet() never does
+// the heavy build on the main thread. Both are additive: nothing existing
+// changed.
+export function warmRingSet() {
+  const rs = ringSet();
+  const out = {};
+  for (const k of Object.keys(rs)) {
+    const r = rs[k];
+    out[k] = {
+      fit: r.fit.map(([x, y]) => [x, y]),
+      render: r.render ? r.render.map(([x, y]) => [x, y]) : null,
+      cloud: !!r.cloud,
+      circle: !!r.circle,
+      fill: r.fill,
+      tear: r.tear,
+    };
+  }
+  return out;
+}
+
+export function adoptRingSet(rs) {
+  if (_rings) return false;  // the main thread built first; values are identical
+  if (!rs || typeof rs !== "object") return false;
+  _rings = rs;
+  return true;
+}

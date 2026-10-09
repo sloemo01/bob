@@ -1,7 +1,7 @@
 {
   "name": "@sloemo/bob",
-  "version": "1.0.1",
-  "description": "bob: 24 morphing SVG faces as a drop-in React component (engine + data packed in)",
+  "version": "1.1.0",
+  "description": "bob: the morphing character and his typing scene as drop-in React components (engine + data packed in)",
   "license": "MIT",
   "type": "module",
   "main": "./dist/bob.cjs",
@@ -37,7 +37,9 @@
     "morph",
     "animation",
     "character",
-    "faces"
+    "faces",
+    "typing",
+    "typewriter"
   ],
   "peerDependencies": {
     "react": ">=18",

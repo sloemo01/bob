@@ -31,7 +31,7 @@
 // bob's placement, on a virtual clock so pause is an exact freeze.
 
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from "react";
-import Stage from "./Stage";
+import Stage from "./TypebobStage";
 import DATA from "../data.json";
 import { smooth5, lerpColor, parseColor } from "../engine/geom";
 import { bodySnapshot, adoptRingSet, CLOUD_FILL, SQUARE_FILL, HEX_FILL, PEBBLE_FILL, TRI_FILL, SB_FILL, TRIGON_FILL, DROPLET_FILL, DIA_FILL } from "../engine/morph";

@@ -11,8 +11,8 @@ Two ways to use it:
 
 - **The app** (`src/`): a Vite + React page that runs the scene full-bleed, on
   its own copy of the engine (`src/engine/` plus `data.json`).
-- **The component** (`component/`): the same scene as a drop-in React
-  component, self-contained and packaged for npm.
+- **The component**: the same scene as a drop-in React component, shipped in
+  the bob npm package (`../component/`) alongside the plain character.
 
 ## The app
 
@@ -21,10 +21,10 @@ Two ways to use it:
 
 ## The npm component
 
-    npm install @sloemo/typebob
+    npm install @sloemo/bob    # Bob (the character) and Typebob (this scene)
 
 ```jsx
-import { Typebob } from "@sloemo/typebob";
+import { Typebob } from "@sloemo/bob";
 
 <div style={{ width: "100%", height: 420 }}>
   <Typebob />
@@ -33,12 +33,13 @@ import { Typebob } from "@sloemo/typebob";
 
 Props (`paragraphs`, `cps`, `body`, `tour`, `paused`, ...), the ref handle and
 the TypeScript types are documented in
-[`component/README.md`](component/README.md). There is a no-build example:
+[`../component/README.md`](../component/README.md). There is a no-build example
+with both components:
 
-    node typebob/component/example/serve.mjs     # http://127.0.0.1:5185/example/
+    node component/example/serve.mjs     # http://127.0.0.1:5184/example/
 
-Rebuild the bundle after changing anything under `component/src` with
-`./component/build.sh`. The engine inside `component/src` is the source of
+Rebuild the bundle after changing anything under `../component/src` with
+`../component/build.sh`. The engine inside `../component/src` is the source of
 truth for the shipped component; `src/` (the app) keeps its own copy.
 
 ## The run
