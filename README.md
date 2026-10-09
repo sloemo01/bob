@@ -1,8 +1,8 @@
-# bob · faces
+<h1 align="center">bob · faces</h1>
 
-24 morphing character faces built from the Figma file "Untitled" (page 0:1).
+<p align="center">24 morphing character faces built from the Figma file "Untitled" (page 0:1).</p>
 
-![bobvid demo](bobvid-demo.gif)
+<p align="center"><img src="bobvid-demo.gif" alt="bobvid demo" /></p>
 
 ## React app (current)
 
