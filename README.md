@@ -4,6 +4,30 @@
 
 <p align="center"><img src="bobvid-demo.gif" alt="bobvid demo" /></p>
 
+## Use it as a React component
+
+`component/` is a self-contained, drop-in package: the whole character (24
+morphing faces, live eyes, the engine, and `data.json`) in one import. Nothing
+outside React is required — the engine, `Stage`, and the data all live inside
+the folder, and `component/dist/` ships prebuilt ESM + CJS bundles.
+
+```jsx
+import { Bob } from "./component/src";        // source
+// or: import { Bob } from "./component/dist/bob.js";  // prebuilt ESM
+
+<Bob size={320} />
+```
+
+Props (`size`, `face`, `hold`, `body`, `paused`, `onFace`, …), the ref handle
+(`goto`, `advance`, `toggle`, `snapshot`) and TypeScript types (`index.d.ts`)
+are documented in [`component/README.md`](component/README.md). There is a
+no-build example page too:
+
+    node component/example/serve.mjs     # http://127.0.0.1:5184/example/
+
+Rebuild the bundle after an engine change with `./component/build.sh` (`app/src`
+stays the source of truth; the script syncs the copy and re-bundles `dist/`).
+
 ## React app (current)
 
 `app/` is the React implementation. Every transition between consecutive faces is

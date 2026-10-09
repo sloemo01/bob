@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bob · component example</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #0e0e11; }
+      #root { height: 100%; display: flex; align-items: center; justify-content: center; }
+      .stack { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+      #controls {
+        display: flex; align-items: center; gap: 12px;
+        font: 500 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+        letter-spacing: 0.14em; color: rgba(255, 255, 255, 0.42);
+      }
+      button {
+        height: 32px; min-width: 64px; padding: 0 14px; border-radius: 9px;
+        border: 1px solid rgba(255, 255, 255, 0.16); background: transparent;
+        color: rgba(255, 255, 255, 0.78);
+        font: 500 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+        letter-spacing: 0.06em; cursor: pointer;
+        transition: border-color 0.15s ease, color 0.15s ease;
+      }
+      button:hover { border-color: rgba(255, 255, 255, 0.45); color: #fff; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- React from a CDN (no install), then the packed bundle this repo ships.
+         Serve the repo root over http, e.g.  node component/example/serve.mjs  -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@19.3.0",
+          "react/": "https://esm.sh/react@19.3.0/",
+          "react-dom": "https://esm.sh/react-dom@19.3.0",
+          "react-dom/": "https://esm.sh/react-dom@19.3.0/"
+        }
+      }
+    </script>
+    <script type="module">
+      import { createElement as h, useRef, useState } from "react";
+      import { createRoot } from "react-dom/client";
+      import { Bob } from "../dist/bob.js";
+
+      function App() {
+        const bob = useRef(null);
+        const [face, setFace] = useState(1);
+        const [paused, setPaused] = useState(false);
+        return h("div", { className: "stack" },
+          h(Bob, {
+            ref: bob,
+            size: 340,
+            paused,
+            onFace: (i) => setFace(i + 1),
+          }),
+          h("div", { id: "controls" },
+            h("button", { onClick: () => bob.current.advance(-1) }, "\u2190"),
+            h("button", { onClick: () => setPaused((p) => !p) }, paused ? "play" : "pause"),
+            h("button", { onClick: () => bob.current.advance(1) }, "\u2192"),
+            h("span", null, `face ${face} / 24`),
+          ),
+        );
+      }
+
+      createRoot(document.getElementById("root")).render(h(App));
+    </script>
+  </body>
+</html>
