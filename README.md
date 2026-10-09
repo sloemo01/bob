@@ -6,17 +6,26 @@
 
 ## The package
 
-`component/` is the whole character as one self-contained package: 24 morphing
-faces, live eyes, the morph engine, `Stage`, and `data.json`. Nothing outside
-React is required, and `dist/` ships prebuilt ESM and CJS bundles. It is on
-npm as `@sloemo/bob` (plain `bob` is taken on the registry).
+Pull it into any React project from npm:
+
+```bash
+npm install @sloemo/bob    # the plain name "bob" is taken on the registry
+```
+
+```jsx
+import { Bob } from "@sloemo/bob";
+
+<Bob size={320} />
+```
+
+That is the whole character in one element: 24 morphing faces, live eyes, the
+morph engine, `Stage`, and `data.json`, with prebuilt ESM and CJS bundles in
+the tarball. React (18 or 19) is the only peer dependency. The same code also
+lives at `component/` in this repo; use it directly if you prefer vendoring:
 
 ```jsx
 import { Bob } from "./component/src";                 // from this repo
 // or the prebuilt ESM bundle: import { Bob } from "./component/dist/bob.js";
-// from npm: import { Bob } from "@sloemo/bob";
-
-<Bob size={320} />
 ```
 
 Props (`size`, `face`, `hold`, `body`, `paused`, `onFace`, ...), the ref handle

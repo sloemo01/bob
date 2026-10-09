@@ -6,16 +6,22 @@ This folder is self-contained: the engine (`morph.js`, `clock.js`, `geom.js`),
 `Stage`, and `data.json` all live inside it, so pointing a bundler at `src/`
 is enough.
 
-On npm as `@sloemo/bob` (the plain name `bob` is taken on the registry):
+Pull it into any React project (18 or 19) from npm:
 
 ```bash
-npm install @sloemo/bob
+npm install @sloemo/bob    # the plain name "bob" is taken on the registry
 ```
 
 ```jsx
 import { Bob } from "@sloemo/bob";
-// from this repo: import { Bob } from "./src";
+
+function App() {
+  return <Bob size={320} />;
+}
 ```
+
+Vendoring instead of npm? `import { Bob } from "./src"` from within this
+folder also works, and the repo root's README shows the copy-in variant.
 
 The built bundles are `dist/bob.js` (ESM) and `dist/bob.cjs` (CommonJS), React
 externalized. `index.d.ts` ships the prop and ref types.
