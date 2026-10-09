@@ -5,8 +5,9 @@
 node_modules
 dist
 dist-ssr
-# ...except the packed component's prebuilt bundle, which ships in the repo
+# ...except the packed components' prebuilt bundles, which ship in the repo
 !component/dist
+!typebob/component/dist
 
 # logs
 logs

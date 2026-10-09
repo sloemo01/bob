@@ -116,10 +116,30 @@ Controls: `←` / `→` step faces, `space` pauses, click advances.
 
 ## typebob
 
-`typebob/` is the typing app: bob types a paragraph character by character,
+`typebob/` is the typing scene: bob types a paragraph character by character,
 switching faces as the words land, and when the last period arrives he folds
-into it, rests, then lifts off to the next paragraph. The app carries its own
-copy of the engine.
+into it, rests, then lifts off to the next paragraph. It ships two ways, both
+in this repo:
+
+- the **app** (`typebob/`), a Vite + React page that runs the scene full-bleed
+- the **component** (`typebob/component/`), the same scene as a drop-in React
+  component, packaged for npm as `@sloemo/typebob`:
+
+```bash
+npm install @sloemo/typebob
+```
+
+```jsx
+import { Typebob } from "@sloemo/typebob";
+
+<div style={{ width: "100%", height: 420 }}>
+  <Typebob paragraphs={["your own words.", "and a second one."]} />
+</div>
+```
+
+Props (`paragraphs`, `cps`, `body`, `tour`, `paused`, `onParagraph`, ...) and
+the ref handle are documented in
+[`typebob/component/README.md`](typebob/component/README.md). The app runs with:
 
     cd typebob && npm install && npm run dev -- --port 5175
 
@@ -131,7 +151,7 @@ Details in [`typebob/README.md`](typebob/README.md).
 - `build.py` regenerates `index.html` and `component/src/data.json`
 - `compare.py` the still-comparison harness
 - `component/` the npm package (`@sloemo/bob`)
-- `typebob/` the typing app
+- `typebob/` the typing app + `typebob/component/` (the npm package `@sloemo/typebob`)
 - `assets/faces/` per-face SVG exports from the Figma file
 - `assets/shots/` per-face PNG screenshots from Figma (ground truth)
 - `assets/render/` headless renders, pair strips, contact sheets
